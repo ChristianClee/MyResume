@@ -42,20 +42,25 @@ const navLinks = document.querySelectorAll('header nav a')
     navbar.classList.remove('active')
 }
 
-const elemAbout = document.querySelector('.about .heading .animate')
-// console.log(elemAbout)
+
+//================================= my animation
+const elemsSpan = document.querySelectorAll('.animate2')
+
 const observerTest = new IntersectionObserver(
   (entries, observer) => {
-
-    const { isIntersecting } = entries[0]
-    if (isIntersecting) {
-      console.log('yes')
-      elemAbout.classList.add('scroll')
-    }
-
-
+    entries.forEach(entrie => {
+      const { isIntersecting, target } = entrie
+      if (isIntersecting) {
+        target.classList.add("active")
+      }
+      else {
+        target.classList.remove("active")
+      }
+    })
+    // console.log(entries)
   }, {}
 )
+elemsSpan.forEach(elem => observerTest.observe(elem))
 
-observerTest.observe(elemAbout)
+
 

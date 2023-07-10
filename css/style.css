@@ -13,7 +13,6 @@
 :root{
   --bg-color: #081b29;
   --second-bg-color: #112e42;
-  --second-bg-color: #112e42;
   --text-color: #ededed;
   --main-color: #00abf0;
 }
@@ -288,12 +287,15 @@ section{
 }
 .about-content h3 {
   font-size: 2.6rem;
+  position: relative;
 }
 .about-content p {
   font-size: 1.6rem;
   margin: 2rem 0 3rem;
+  position: relative;
 }
 .btn-box.btns {
+  position: relative;
   display: inline-block;
   width: 15rem;
 }
@@ -316,8 +318,10 @@ section{
 }
 .education-row .education-column {
   flex: 1 1 38rem;
+  position: relative;
 }
 .education-column .title {
+  position: relative;
   font-size: 2.5rem;
   margin: 0 0 1.5rem 2rem;
 }
@@ -328,6 +332,7 @@ section{
   position: relative;
   padding-left: 2rem;
   margin-bottom: 2rem; 
+
 }
 .aducation-box .aducation-content::before{
   content: '';
@@ -337,6 +342,7 @@ section{
   width: 2rem;
   height: 2rem;
   background: var(--main-color);
+  z-index: 99;
   border-radius: 50%;
 }
 .aducation-content .content {
@@ -370,6 +376,7 @@ section{
 }
 .aducation-content .content .year h3{
   font-size: 2rem;
+  position: relative;
 }
 .aducation-content .content .year p{
   font-size: 1.6rem;
@@ -388,8 +395,10 @@ section{
 }
 .skills-row .skills-column {
   flex: 1 1 40rem;
+  position: relative;
 }
 .skills-column .title {
+  position: relative;
   font-size: 2.5rem;
   margin: 0 0 1.5rem;
 }
@@ -416,6 +425,7 @@ section{
 }
 .skills-content .progress {
   padding: 1rem 0;
+  position: relative;
 }
 .skills-content .progress h3{
   font-size: 1.7rem;
@@ -428,35 +438,37 @@ section{
   border: .2rem solid var(--main-color);
   padding: .5rem;
   margin: 1rem 0;
+  position: relative;
 }
-.skills-content .progress .bar span{
+.skills-content .progress .bar .percent{
   display: block;
   height: 100%;
   border-radius: .3rem;
   background: var(--main-color);
+  position: relative;
 }
-.skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span{
+.skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar .percent{
   width: 90%;
 } 
-.skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span{
+.skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar .percent{
   width: 90%;
 } 
-.skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span{
+.skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar .percent{
   width: 80%;
 } 
-.skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span{
+.skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar .percent{
   width: 30%;
 } 
-.skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span{
+.skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar .percent{
   width: 30%;
 } 
-.skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span{
+.skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar .percent{
   width: 80%;
 } 
-.skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span{
+.skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar .percent{
   width: 70%;
 } 
-.skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span{
+.skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar .percent{
   width: 60%;
 } 
 
@@ -581,6 +593,26 @@ section{
   background-color: yellowgreen;
   z-index: 98;
 }
+.animate2{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 98;
+}
+
+
+.header-animate .animate2,
+.home-animate .animate2,
+.about-animate .animate2,
+.education-animate .animate2,
+.skills-animate .animate2,
+.contact-animate .animate2{
+  background-color: var(--d);
+}
+
+
 .animate.home-img{
   width: 50%;
 }
@@ -591,9 +623,10 @@ section{
   animation: showRight 1s ease forwards;
   animation-delay: calc(.3s * var(--i));
 }
-.animate.active {
+.animate2.active {
+  /* animation: showRight 1s ease forwards; */
   transition: 1s ease;
-  transition-delay: calc(.3 / var(--i));
+  transition-delay: calc(.3s * var(--i));
   width: 0;
 }
 
