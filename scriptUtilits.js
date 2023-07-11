@@ -1,3 +1,4 @@
+// const axios = require("axios")
 // toggle icon navbar
 const mebuIcon = document.querySelector('#menu-icon');
 const navbar = document.querySelector('.navbar');
@@ -53,14 +54,14 @@ const observerTest = new IntersectionObserver(
       if (isIntersecting) {
         target.classList.add("active")
       }
-      else {
-        target.classList.remove("active")
-      }
+      // else {
+      //   target.classList.remove("active")
+      // }
     })
     // console.log(entries)
   }, {}
 )
 elemsSpan.forEach(elem => observerTest.observe(elem))
 
-
+// =============================== telegram
 

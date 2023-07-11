@@ -14,6 +14,7 @@
   --bg-color: #081b29;
   --second-bg-color: #112e42;
   --text-color: #ededed;
+  --text-placeholder: rgb(133, 130, 130);
   --main-color: #00abf0;
 }
 html{
@@ -324,6 +325,7 @@ section{
   position: relative;
   font-size: 2.5rem;
   margin: 0 0 1.5rem 2rem;
+  text-align: center;
 }
 .education-column .aducation-box {
   border-left: .2rem solid var(--main-color);
@@ -332,7 +334,6 @@ section{
   position: relative;
   padding-left: 2rem;
   margin-bottom: 2rem; 
-
 }
 .aducation-box .aducation-content::before{
   content: '';
@@ -347,6 +348,7 @@ section{
 }
 .aducation-content .content {
   position: relative;
+  display: block;
   padding: 1.5rem;
   border: .2rem solid var(--main-color);
   border-radius: .6rem;
@@ -370,17 +372,22 @@ section{
   font-size: 1.5rem;
   color: var(--main-color);
   padding-bottom: .5rem;
+  /* background-color: red; */
+  height: 13rem;
 }
 .aducation-content .content .year i{
   padding-right: .5rem;
+  font-size: 35px;
 }
 .aducation-content .content .year h3{
   font-size: 2rem;
+  text-align: center;
   position: relative;
 }
 .aducation-content .content .year p{
   font-size: 1.6rem;
   padding-top: .5rem;
+  text-align: center;
 }
 
 .skills {
@@ -447,30 +454,9 @@ section{
   background: var(--main-color);
   position: relative;
 }
-.skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar .percent{
-  width: 90%;
-} 
-.skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar .percent{
-  width: 90%;
-} 
-.skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar .percent{
-  width: 80%;
-} 
-.skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar .percent{
-  width: 30%;
-} 
-.skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar .percent{
-  width: 30%;
-} 
-.skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar .percent{
-  width: 80%;
-} 
-.skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar .percent{
-  width: 70%;
-} 
-.skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar .percent{
-  width: 60%;
-} 
+.skills-content .progress .bar .percent{
+  width: var(--skill-width);
+}
 
 .contact {
   /* min-height: auto; */
@@ -483,17 +469,14 @@ section{
 }
 .contact form .input-box{
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 .contact form .input-box .input-field {
   position: relative;
-  width: 49%;
   margin: .8rem 0;
 }
 .contact form .input-box .input-field input,
 .contact form .textarea-field textarea {
+  text-align: center;
   width: 100%;
   height: 100%;
   padding: 1.5rem;
@@ -505,7 +488,9 @@ section{
 }
 .contact form .input-box .input-field input::placeholder,
 .contact form .textarea-field textarea::placeholder{
-  color: var(--text-color);
+  color: var(--text-placeholder);
+  font-size: 1.6rem;
+
 }
 .contact form .focus{
   position: absolute;
