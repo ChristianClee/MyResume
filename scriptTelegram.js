@@ -5,8 +5,9 @@ const TOKEN = '6311982431:AAH3Ly7SFsEUOtEGE2eefpuuSxu4QT8lPQE'
     document.getElementById('tg').addEventListener('submit', function (e) {
       e.preventDefault()
       let message = `<b>new message!</b>\n`;
-      message += `<b>sendler</b> ${this.name.value}\n`
+      message += `<b>name: </b> ${this.name.value}\n`
       message += `<b>mail: </b> ${this.email.value}\n`
+      message += `<b>phone: </b> ${this.phone.value}\n`
       message += `<b>text: </b> ${this.textAria.value}\n`
       axios.post(URL, {
         chat_id: CHAT_ID,
@@ -16,6 +17,7 @@ const TOKEN = '6311982431:AAH3Ly7SFsEUOtEGE2eefpuuSxu4QT8lPQE'
       .then((res) => {
         this.name.value = ''
         this.email.value = ''
+        this.phone.value = ''
         this.textAria.value = ''
       })
       .catch((err) => {

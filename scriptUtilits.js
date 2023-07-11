@@ -58,10 +58,42 @@ const observerTest = new IntersectionObserver(
       //   target.classList.remove("active")
       // }
     })
-    // console.log(entries)
   }, {}
 )
 elemsSpan.forEach(elem => observerTest.observe(elem))
 
-// =============================== telegram
+// =============================== my buttons
+
+const details = document.querySelector('.about-content .details')
+const buttonDetails = document.querySelector('.about-content .btn')
+buttonDetails.onclick = () => {
+  details.classList.toggle('active')
+  const condition = details.classList.value.split(' ').includes('active')
+  if (condition) {
+    buttonDetails.textContent = "Hide"
+  } else {
+    buttonDetails.textContent = 'Read more'
+  }
+}
+
+// ========================== aducation-content
+ 
+const contents = document.querySelectorAll('.aducation-content .content .year')
+const maxHeight = () => {
+  let maxheight = 0
+  contents.forEach(content => {
+    const contentHeight = content.getBoundingClientRect().height;
+    if (contentHeight > maxheight) {
+      maxheight = contentHeight
+    } 
+  })
+  contents.forEach(content => { 
+    content.style.height = `${maxheight}px`
+  })
+}
+maxHeight()
+
+window.addEventListener('resize', () => {
+  maxHeight()
+})
 
