@@ -7,54 +7,54 @@ const params = [
   rightShift: 0,
   speed: 180,
   },
-  {
-  rightShift: 4,
-  speed: 200,
-  },
-  {
-  rightShift: 8,
-  speed: 130,
-  },
-  {
-  rightShift: 10,
-  speed: 100,
-  },
-  {
-  rightShift: 12,
-  speed: 105,
-  },
-  {
-  rightShift: 14,
-  speed: 95,
-  },
-  {
-  rightShift: 17,
-  speed: 125,
-  },
-  {
-  rightShift: 20,
-  speed: 145,
-  },
-  {
-  rightShift: 24,
-  speed: 132,
-  },
-  {
-  rightShift: 28,
-  speed: 121,
-  },
-  {
-  rightShift: 36,
-  speed: 155,
-  },
-  {
-  rightShift: 42,
-  speed: 141,
-  },
-  {
-  rightShift: 52,
-  speed: 134,
-  },
+  // {
+  // rightShift: 4,
+  // speed: 200,
+  // },
+  // {
+  // rightShift: 8,
+  // speed: 130,
+  // },
+  // {
+  // rightShift: 10,
+  // speed: 100,
+  // },
+  // {
+  // rightShift: 12,
+  // speed: 105,
+  // },
+  // {
+  // rightShift: 14,
+  // speed: 95,
+  // },
+  // {
+  // rightShift: 17,
+  // speed: 125,
+  // },
+  // {
+  // rightShift: 20,
+  // speed: 145,
+  // },
+  // {
+  // rightShift: 24,
+  // speed: 132,
+  // },
+  // {
+  // rightShift: 28,
+  // speed: 121,
+  // },
+  // {
+  // rightShift: 36,
+  // speed: 155,
+  // },
+  // {
+  // rightShift: 42,
+  // speed: 141,
+  // },
+  // {
+  // rightShift: 52,
+  // speed: 134,
+  // },
 ]
 // console.log("here", window.innerWidth)
 
