@@ -1,5 +1,5 @@
 //================================================== creating fallingCode in HTML
-
+console.log('hey')
 const fallingCode = document.querySelector('.falling-code')
 const deley = fallingCode.dataset.settimeoutdeley
 const params = [
@@ -56,7 +56,7 @@ const params = [
   speed: 134,
   },
 ]
-
+// console.log("here", window.innerWidth)
 
 
 // ================================================ run fallingCode 
@@ -68,9 +68,9 @@ setTimeout(() => {
     // it generating data which was got from html into strings
     const string = `.${elem.className.split(' ')[0]}`
     const indicatorElem = elem.firstElementChild
-    const indicator =  `.${indicatorElem.className.split(' ')[0]}`
+    const indicator = `.${indicatorElem.className.split(' ')[0]}`
     const time = parseInt(indicatorElem.dataset.time) 
-    strings.push({string,indicator,time})
+    strings.push({string, indicator, time})
   })
 
   strings.forEach((elem) => {
@@ -78,7 +78,7 @@ setTimeout(() => {
     createSpan(elem.string, elem.indicator, elem.time) 
     // it triggers when viewPort changes the size
     window.addEventListener('resize', (e) => {
-      createSpan(elem.string)
+      createSpan(elem.string, elem.indicator, elem.time)
     })
   })
 
@@ -102,12 +102,12 @@ function createStrings(params) {
     string.style = `--shift: ${rightShift}rem`
   
     const indicator = document.createElement('span')
-    indicator.classList.add(`indicator${i}`)
+    indicator.classList.add(`indicator${i+1}`)
     indicator.classList.add(`indicator-style`)
     indicator.dataset.time = `${speed}`
 
     string.prepend(indicator)
-    fallingCode.prepend(string)
+    fallingCode.append(string)
   }
 }
 function createSpan(stringName, indicateName, timeDistense) {

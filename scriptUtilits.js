@@ -98,6 +98,18 @@ window.addEventListener('resize', () => {
 })
 
 // ================================= hover popUp
+
+
+const additionImg = document.querySelectorAll('.addition .item .skils-img')
+additionImg.forEach((elem) => {
+  addEvent(elem, 'mouseout')
+  addEvent(elem, 'mouseover')
+  addEvent(elem, 'touchstart')
+  addEvent(elem, 'touchend')
+})
+
+
+
 function addEvent(elem, event) {
   elem.addEventListener(`${event}`, () => {
     if (event === "mouseout") {
@@ -115,25 +127,5 @@ function addEvent(elem, event) {
     else if (event === "touchend") {
       elem.previousElementSibling.style.visibility = "hidden"
     }
-
   })
 }
-
-
-const icons = document.querySelectorAll('#jest, #git, #npm, #github, #webpack')
-icons.forEach(icon => {
-  addEvent(icon, 'mouseout')
-  addEvent(icon, 'mouseover')
-  addEvent(icon, 'touchstart')
-  addEvent(icon, 'touchend')
-})
-
-
-// const addition = document.querySelector('.skills-pictures .addition')
-// console.log(addition)
-// addition.addEventListener("mouseover", (e) => {
-//   console.log(e.target.className)
-//   // console.log(e)
-//   // if (e.target.className === "item") console.log(true)
-//   // else console.log(false)
-// })
