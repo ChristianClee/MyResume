@@ -13,7 +13,6 @@
   <header class="header header-animate" style="--d: #081b29">
     <a href="#" class="logo">Ilya <span class="animate2" style="--i:1;"></span></a>
     <div class="bx bx-menu" id="menu-icon"><span class="animate2" style="--i:2;"></span></div>
-
     <nav class="navbar">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
@@ -24,26 +23,29 @@
       <span class="active-nav"></span>
       <span class="animate2" style="--i:2;"></span>
     </nav>
-
   </header>
 
   <!-- home section design  -->
-  <section class="home home-animate" id="home" style="--d: #081b29">
+  <section class="home home-animate" id="home"style="--d: #081b29">
+
+    <div class="falling-code" data-setTimeOutDeley="3700">
+    </div>
+
     <div class="home-content">
-      <h1>Hi, I'm <span>Ilya</span><span class="animate2" style="--i:2;"></span></h1>
+      <h1>Hi, I'm Ilya<span class="animate2" style="--i:2;"></span></h1>
       <div class="text-animate">
         <h3>Frontend Developer</h3>
         <span class="animate2" style="--i:3;"></span>
       </div>
       <p>
-        Привет меня зовут Илья Мишков, я занимаюсь в основном Frontend разработкой но если нужно BackEnd часть я то же делаю
+        Привет меня зовут Илья, я занимаюсь Frontend разработкой.
         <span class="animate2" style="--i:4;"></span>
       </p>
-      <div class="btn-box">
+      <!-- <div class="btn-box">
         <a href="#" class="btn">Hire Me</a>
         <a href="#" class="btn">Let's talk</a>
         <span class="animate2" style="--i:5;"></span>
-      </div>
+      </div> -->
     </div>
 
     <div class="home-sci">
@@ -51,13 +53,13 @@
       <span class="animate2" style="--i:6;"></span>
     </div>
 
-    <div class="home-imgHover"></div>
-    <span class="animate2 home-img" style="--i:7;"></span>
+    <div class="home-imgLayer"></div>
+    <!-- <span class="animate2 home-img" style="--i:7;"></span> -->
   </section>
 
   <!-- about section design -->
   <section class="about about-animate" style="--d:#112e42" id="about">
-    <h2 class="heading">About <span>Me</span><span class="animate2" style="--i:1"></span> </h2>
+    <h2 class="heading">About <span class="animate2" style="--i:1"></span> </h2>
     <div class="about-img">
       <img src="./assets/pictures/imgonline-com-ua-Resize-s3GCopVERF5.jpg" alt="">
       <span class="circle-span"></span>
@@ -66,9 +68,9 @@
     <div class="about-content">
       <h3>Frontend Developer! <span class="animate2" style="--i:1;"></span></h3>
       <p>
-        Привет меня зовут Илья я занимаюсь Frontend разработкой. Я пишу код для создания сайтов и приложений адаптивных под различные разрешения экрана.
+        Я пишу код для создания сайтов и приложений адаптивных под различные разрешения экрана.
         А так же внедряю логику взаимодействия пользовательского интерфейса и приложения на стороне клиента. Работаю с REST API и базами данных.
-        Пишу простые сайты на HTML + CSS + JS и сложные приложения на React + Redux + SASS + TypeScript + библиотеки  
+        Пишу простые сайты используя HTML + CSS + JS и сложные приложения на React + Redux + SASS + TypeScript + библиотеки  
         <span class="animate2" style="--i:5;"></span>
       </p>
       <div class="btn-box btns">
@@ -76,33 +78,40 @@
         <span class="animate2" style="--i:4;"></span>
       </div>
       <div class="details">
-        <h3> Немного о себе </h3>
+
         <div class="text">
-          <p class="text-about">
-            Я молодой, сильный и красивый, начинающий программист претендую на позицию <span>Junior Frontend</span> или <span>Junior FullStack</span>   
-            готов по уши погрузится в рутину разработки, что бы помочь вам и себе заработать немного на хлеб и масло. Я имею
-            достаточный опыт на FreeLance и хотел бы работать на прямую с работодателем, а не только за FeedBack
-            <span class="animate2" style="--i:2;"></span>
-          </p>
-            <ul class="text-about">
-              <li>Перенашу проекты написанные при помощи HTML на React JS</li>
-              <li>Создаю логику взаимодействия элементов приложения</li>
-              <li>Верстаю лендинги с макетов Figma а затем задаю адаптив к ним.</li>
-              <li>Делаю CSS анимацию</li>
-              <li>Осуществляю получение и отправку данных на сервер</li>
-              <li>Использую как классовый так и функциональный подход в написании кода</li>
-            </ul>
-        </div>
-        
-        <div class="hobby">
-          
-          <div class="ibg">
+          <div class="text-about">
+            <h3>O себе</h3>
+            <p>
+              Я претендую на позицию <span>Junior Frontend</span>
+              готов по уши погрузится в рутину разработки, что бы помочь вам и себе заработать немного на хлеб и масло. Имею
+              достаточный опыт на FreeLance и хотел бы работать на прямую с работодателем, а не через десять человек только за FeedBack
+            </p>
+          </div>
+          <!-- <div class="ibg">
             <img src="./assets/pictures/astronaus_guitar.png" alt="">
             <span class="animate2" style="--i:1;"></span>
+          </div> -->
+          <div class="text-about">
+            <h3>Mогу предложить</h3>
+            <ul >
+              <li>Перенести проекты написанные при помощи HTML на React JS</li>
+              <li>Создать логику взаимодействия элементов приложения используя JS, TS, Python </li>
+              <li>Сверстать лендинги с макетов Figma и затем адаптировать их.</li>
+              <li>Сделать CSS анимацию</li>
+              <li>Реализовать получение и отправку данных на сервер</li>
+              <li>Работать с базами данных SQL, составлять таблици и делать запросы к ним</li>
+              <li>При написании кода использую как классовый так и функциональный подход</li>
+            </ul>
           </div>
-          
-        </div>
-        
+          <!-- <div class="ibg">
+            <img src="./assets/pictures/dog (2).png" alt="">
+            <span class="animate2" style="--i:1;"></span>
+          </div> -->
+        </div>    
+        <img src="./assets/pictures/digits.png" class="details-fon" alt="">
+        <span class="animate3" style="--i:2;"></span>
+
       </div>
       
     </div>
@@ -181,10 +190,10 @@
   <!-- skills section design -->
 
   <section class="skills skills-animate" style="--d:#112e42" id="skills">
-    <h2 class="heading"> Мои <span>Навыки</span> <span class="animate2" style="--i:1"></span></h2>
+    <h2 class="heading"> Мои <span>навыки</span> <span class="animate2" style="--i:1"></span></h2>
     <div class="skills-row">
       <div class="skills-column">
-        <h3 class="title">Основные навыки<span class="animate2" style="--i:3;"></span></h3>
+        <h3 class="title">Основные<span class="animate2" style="--i:3;"></span></h3>
         <div class="skills-box">
           <div class="skills-content">
             <div class="progress">
@@ -240,7 +249,7 @@
       </div>
 
       <div class="skills-column">
-        <h3 class="title">Дополнительные навыки <span class="animate2" style="--i:3;"></span></h3>
+        <h3 class="title">Дополнительные <span class="animate2" style="--i:3;"></span></h3>
         <div class="skills-box">
           <div class="skills-content">
             <div class="progress">
@@ -293,6 +302,47 @@
         <span class="animate2" style="--i:1;"></span>
       </div>
     </div>
+    <dir class="skills-pictures">
+      <h3>Экстра дополнительные</h3>
+      <div class="addition">
+
+        <div class="item">
+          <p>Jest</p>
+          <div class='skils-img' id="jest">
+            <img src="./assets/stats/jest.svg" alt="">
+          </div>
+        </div>
+        
+        <div class="item">
+          <p>Git</p>
+          <div class='skils-img' id="git">
+            <img src="./assets/stats/git.svg" alt="">
+          </div>
+        </div>
+
+        <div class="item">
+          <p>NPM</p>
+          <div class='skils-img' id="npm">
+            <img src="./assets/stats/npm.svg" alt="">
+          </div>
+        </div>
+
+        <div class="item">
+          <p>Git Hub</p>
+          <div class='skils-img' id="github">
+            <img src="./assets/stats/github.svg" alt="">
+          </div>
+        </div>
+
+        <div class="item">
+          <p>Webpack</p>
+          <div class='skils-img' id="webpack">
+            <img src="./assets/stats/webpack.svg" alt="">
+          </div>
+        </div>
+
+      </div>
+    </dir>
   </section>
   
   <!--contact section design  -->
@@ -330,6 +380,9 @@
       </div>
 
     </form>
+    <div class="pop-up">
+      <p>Cообщение было отправленно</p>
+    </div>
   </section>
   
   <!-- footer design -->
@@ -342,6 +395,8 @@
     </div>
   </footer>
 
+
+  <script src="./scriptMatrix.js"></script>
   <script src="./scriptUtilits.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   <script src="scriptTelegram.js"></script>

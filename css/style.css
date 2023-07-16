@@ -86,7 +86,7 @@ section{
   display: flex;
   align-items: center;
   padding: 0 9%;
-  background: url('../assets/pictures/pngegg.png');
+  background: url('../assets/pictures/skull.jpg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 80% ;
@@ -212,6 +212,7 @@ section{
   color: var(--main-color);
   overflow: hidden;
   transition: .5s;
+  z-index: 2;
 }
 .home-sci a i{
   font-size: 3.5rem;
@@ -233,20 +234,22 @@ section{
 .home-sci a:hover::before{
     width: 100%;
 }
-.home-imgHover{
+.home-imgLayer{
   position: absolute;
   top:0;
   right: 0;
-  width: 45%;
+  width: 100%;
   height: 100%;
-  background: transparent;
-  transition: 3s;
   z-index: 1;
-}
-.home-imgHover:hover{
+  opacity: 1;
   background: var(--bg-color);
-  opacity: .8;
+  animation-name: homeMainImg;
+  animation-duration: 1.7s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
 }
+
 
 .about {
   min-height: auto;
@@ -257,6 +260,8 @@ section{
   flex-direction: column;
   gap: 2rem;
   padding-bottom: 6rem;
+  position: relative;
+  z-index: 5;
 }
 .heading {
   position: relative;
@@ -284,7 +289,7 @@ section{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(0);
+  transform: translate(-50%, -50%) rotateX(0);
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -303,7 +308,7 @@ section{
 }
 .about-content p,
 .about-content ul{
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   margin: 2rem 0 3rem;
   position: relative;
 }
@@ -319,12 +324,29 @@ section{
   background: var(--second-bg-color)
 }
 .about-content .details{
+  /* overflow: hidden; */
+  /* height: 0; */
   display: none;
+  position: relative;
   margin-top: 2rem;
+
 }
 .about-content .details.active{
   display: block;
-  
+  transition: 1s ease;
+  height: 100%;
+}
+.about-content .details h3{
+  text-align: center;
+}
+.about-content .details-fon{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: .1;
+
 }
 .details .text{
   display: flex;
@@ -423,6 +445,7 @@ section{
   font-size: 1.5rem;
   color: var(--main-color);
   padding-bottom: .5rem;
+  
 }
 .aducation-content .content .year i{
   padding-right: .5rem;
@@ -445,10 +468,47 @@ section{
   padding-bottom: 7rem;
   background: var(--second-bg-color);
 }
+.skills .skills-pictures h3{
+  font-size: 2.5rem;
+  text-align: center;
+}
+.skills-pictures .addition{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.addition .item{
+  text-align: center;
+}
+.addition .item p{
+  visibility: hidden;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.addition .item .skils-img{
+  position: relative;
+  width: 12rem;
+  height: 6rem;
+}
+.addition .item .skils-img img{
+  position: absolute;
+  /* width: 100%; */
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  
+}
+
 .skills .skills-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 5rem;
+  gap: 3rem;
+  margin-bottom: 2rem;
 }
 .skills-row .skills-column {
   flex: 1 1 40rem;
@@ -458,6 +518,7 @@ section{
   position: relative;
   font-size: 2.5rem;
   margin: 0 0 1.5rem;
+  text-align: center;
 }
 .skills-box .skills-content {
   position: relative;
@@ -618,19 +679,35 @@ section{
   color: var(--main-color);
 }
 
-/* animation reload and scroll */
-.animate{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: yellowgreen;
-  z-index: 98;
+/* pop up messages */
+.pop-up{
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 100;
+  border: 2px solid var(--main-color);
+  padding: 1rem;
+  border-radius: .5rem;
+  
 }
-.animate2{
+.pop-up.active{
+ 
+  animation-name: showPopUp;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  
+}
+.pop-up p{
+  font-size: 1.6rem;
+}
+
+/* animation reload and scroll */
+
+.animate2, .animate3{
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   width: 100%;
   height: 100%;
@@ -641,6 +718,7 @@ section{
 .header-animate .animate2,
 .home-animate .animate2,
 .about-animate .animate2,
+.about-animate .animate3,
 .education-animate .animate2,
 .skills-animate .animate2,
 .contact-animate .animate2{
@@ -648,9 +726,10 @@ section{
 }
 
 
-.animate.home-img{
+
+/* .animate2.home-img{
   width: 50%;
-}
+} */
 .logo .animate,
 .navbar .animate,
 #menu-icon .animate,
@@ -659,14 +738,77 @@ section{
   animation-delay: calc(.3s * var(--i));
 }
 .animate2.active {
-  /* animation: showRight 1s ease forwards; */
   transition: 1s ease;
   transition-delay: calc(.3s * var(--i));
   width: 0;
 }
+.animate3.active{
+  transition: 1s ease;
+  transition-delay: calc(.3s * var(--i));
+  height: 0;
+}
 
-
-
+/* falling code */
+.falling-code{
+  position: absolute;
+  top: 6rem;
+  right: 100px;
+  width: 100%;
+  height: 100%;
+}
+.falling-code>span{
+  position: absolute;
+  top: 0;
+  right: var(--shift);
+  display: inline-block;
+}
+.falling-code .letter{
+  display: block;
+  cursor: default;
+  font-size: 2rem;
+  position: relative;
+  color: var(--main-color);
+  z-index: 4;
+  opacity: 0;
+  transition-property: opacity, color ; 
+  transition-timing-function: linear;
+  transition-duration: 2s;  /* !!!  it controls animation's time  */
+}
+.falling-code .letter.active{
+  opacity: 1;
+  transition-property: opacity,color ;
+  transition-duration: 0s;
+  color: #9bd9f1;
+}
+.indicator-style{
+  position: absolute;
+  display: block;
+  top: -2rem;
+  left: 0rem;
+  width: 2rem;
+  height: 2rem;
+  z-index: 22;
+  animation-name: fallingLetter;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  font-size: 2rem;
+  z-index: 2;
+}
+.indicator-style::before{
+  content: '';
+  position: absolute;
+  top: 80%;
+  left: 30%;
+  box-shadow: 0px 0px 35px 6px rgb(255, 255, 255);
+}
+.indicator-style::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 0 150px 25px var(--main-color);
+  z-index: -1;
+}
 
 /* breakpoints */
 @media (max-width: 1200px){
@@ -738,11 +880,6 @@ section{
   .navbar.active a{
     transform: translateX(0);
     transition-delay: .45s;
-  }
-  .home-imgHover{
-    pointer-events: none;
-    background: var(--bg-color);
-    opacity: .6;
   }
 }
 @media (max-width: 520px){
@@ -826,8 +963,29 @@ section{
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+@keyframes homeMainImg{
+  0%{opacity: 1}
+  50%{opacity: .7}
+  100%{opacity: .90}
+}
 @keyframes showRight{
   100%{
     width: 0;
+  }
+}
+@keyframes showPopUp{
+  0%, 10%,20%,26%,30%,32%,35%, 100%{
+    opacity: 1;
+  }
+  5%,15%,23%,28%,31%,33%,34%,85%{
+    opacity: 0;
+  }
+}
+@keyframes fallingLetter{
+  0%{
+    top: -2rem;
+  }
+  100%{
+    top: 100%;
   }
 }

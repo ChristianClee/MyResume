@@ -45,7 +45,7 @@ const navLinks = document.querySelectorAll('header nav a')
 
 
 //================================= my animation
-const elemsSpan = document.querySelectorAll('.animate2')
+const elemsSpan = document.querySelectorAll('.animate2, .animate3')
 
 const observerTest = new IntersectionObserver(
   (entries, observer) => {
@@ -54,12 +54,10 @@ const observerTest = new IntersectionObserver(
       if (isIntersecting) {
         target.classList.add("active")
       }
-      // else {
-      //   target.classList.remove("active")
-      // }
     })
   }, {}
 )
+
 elemsSpan.forEach(elem => observerTest.observe(elem))
 
 // =============================== my buttons
@@ -78,10 +76,12 @@ buttonDetails.onclick = () => {
 
 // ========================== aducation-content
  
-const contents = document.querySelectorAll('.aducation-content .content .year')
 const maxHeight = () => {
+  const contents = document.querySelectorAll('.aducation-content .content')
+
   let maxheight = 0
   contents.forEach(content => {
+    content.style.height = `auto`
     const contentHeight = content.getBoundingClientRect().height;
     if (contentHeight > maxheight) {
       maxheight = contentHeight
@@ -97,3 +97,43 @@ window.addEventListener('resize', () => {
   maxHeight()
 })
 
+// ================================= hover popUp
+function addEvent(elem, event) {
+  elem.addEventListener(`${event}`, () => {
+    if (event === "mouseout") {
+      elem.previousElementSibling.style.visibility = "hidden"
+    }
+    else if (event === "mouseover") {
+      elem.previousElementSibling.style.visibility = "visible"
+    }
+    else if (event === "touchstart") {
+      elem.previousElementSibling.style.visibility = "visible"
+    }
+    else if (event === "touchstart") {
+      elem.previousElementSibling.style.visibility = "visible"
+    }
+    else if (event === "touchend") {
+      elem.previousElementSibling.style.visibility = "hidden"
+    }
+
+  })
+}
+
+
+const icons = document.querySelectorAll('#jest, #git, #npm, #github, #webpack')
+icons.forEach(icon => {
+  addEvent(icon, 'mouseout')
+  addEvent(icon, 'mouseover')
+  addEvent(icon, 'touchstart')
+  addEvent(icon, 'touchend')
+})
+
+
+// const addition = document.querySelector('.skills-pictures .addition')
+// console.log(addition)
+// addition.addEventListener("mouseover", (e) => {
+//   console.log(e.target.className)
+//   // console.log(e)
+//   // if (e.target.className === "item") console.log(true)
+//   // else console.log(false)
+// })
