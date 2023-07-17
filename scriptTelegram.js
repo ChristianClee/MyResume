@@ -1,3 +1,5 @@
+// const axios = require('axios')
+
 const popUp = document.querySelector('.pop-up')
 // console.log(popUp)
 // popUp.style.display = 'block'

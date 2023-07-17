@@ -822,12 +822,12 @@ section{
   .falling-code{
     right: 1rem;
   }
-  .falling-code .string13{
+  /* .falling-code .string13{
     right: 38rem;
   }
   .falling-code .string12{
     right: 35rem;
-  }
+  } */
 
 
 
@@ -886,7 +886,7 @@ section{
     transform: translateX(0);
     transition-delay: .45s;
   }
-  .falling-code .letter{
+  /* .falling-code .letter{
     font-size: 1.5rem;
   }
   .indicator-style{
@@ -897,7 +897,7 @@ section{
   }
   .falling-code .string12{
     right: 28rem;
-  }
+  } */
 
 }
 @media (max-width: 520px){
@@ -915,7 +915,7 @@ section{
     width: 38px;
     height: 38px;
   }
-  .falling-code .letter{
+  /* .falling-code .letter{
     transition-duration: 2s;
     font-size: 0.5rem;
   }
@@ -934,7 +934,7 @@ section{
   }
   .indicator1{
     animation-duration: 10s;
-  }
+  } */
 }
 @media (max-width: 462px){
   .home-content h1{
