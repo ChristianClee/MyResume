@@ -1,90 +1,90 @@
 //================================================== creating fallingCode in HTML
-console.log('hey')
+
 const fallingCode = document.querySelector('.falling-code')
+console.dir(fallingCode)
+
+
 const deley = fallingCode.dataset.settimeoutdeley
 const params = [
   {
   rightShift: 0,
   speed: 180,
   },
-  // {
-  // rightShift: 4,
-  // speed: 200,
-  // },
-  // {
-  // rightShift: 8,
-  // speed: 130,
-  // },
-  // {
-  // rightShift: 10,
-  // speed: 100,
-  // },
-  // {
-  // rightShift: 12,
-  // speed: 105,
-  // },
-  // {
-  // rightShift: 14,
-  // speed: 95,
-  // },
-  // {
-  // rightShift: 17,
-  // speed: 125,
-  // },
-  // {
-  // rightShift: 20,
-  // speed: 145,
-  // },
-  // {
-  // rightShift: 24,
-  // speed: 132,
-  // },
-  // {
-  // rightShift: 28,
-  // speed: 121,
-  // },
-  // {
-  // rightShift: 36,
-  // speed: 155,
-  // },
-  // {
-  // rightShift: 42,
-  // speed: 141,
-  // },
-  // {
-  // rightShift: 52,
-  // speed: 134,
-  // },
+  {
+  rightShift: 4,
+  speed: 200,
+  },
+  {
+  rightShift: 8,
+  speed: 130,
+  },
+  {
+  rightShift: 10,
+  speed: 100,
+  },
+  {
+  rightShift: 12,
+  speed: 105,
+  },
+  {
+  rightShift: 14,
+  speed: 95,
+  },
+  {
+  rightShift: 17,
+  speed: 125,
+  },
+  {
+  rightShift: 20,
+  speed: 145,
+  },
+  {
+  rightShift: 24,
+  speed: 132,
+  },
+  {
+  rightShift: 28,
+  speed: 121,
+  },
+  {
+  rightShift: 36,
+  speed: 155,
+  },
+  {
+  rightShift: 42,
+  speed: 141,
+  },
+  {
+  rightShift: 52,
+  speed: 134,
+  },
 ]
 // console.log("here", window.innerWidth)
 
-
+let strings2 = []
+let strings = [] 
 // ================================================ run fallingCode 
 setTimeout(() => {
-  createStrings(params)
-  const lines = document.querySelectorAll('.falling-code>span')
-  let strings = [] // [{string:'.string1', indicator:'.indicator1', time:'180'}]
-  lines.forEach(elem => {
-    // it generating data which was got from html into strings
-    const string = `.${elem.className.split(' ')[0]}`
-    const indicatorElem = elem.firstElementChild
-    const indicator = `.${indicatorElem.className.split(' ')[0]}`
-    const time = parseInt(indicatorElem.dataset.time) 
-    strings.push({string, indicator, time})
-  })
 
-  strings.forEach((elem) => {
+
+  createStrings(params)
+  
+
+
+  strings2.forEach((elem) => {
     // it triggers when app is opened a first time
-    createSpan(elem.string, elem.indicator, elem.time) 
+    // createSpan(elem.string, elem.indicator, elem.time) 
+    createSpan2(elem)
     // it triggers when viewPort changes the size
-    window.addEventListener('resize', (e) => {
-      createSpan(elem.string, elem.indicator, elem.time)
+    window.addEventListener('resize', () => {
+      // createSpan(elem.string, elem.indicator, elem.time)
+      createSpan2(elem)
     })
   })
 
   setInterval(() => {
-    strings.forEach(elem => getAnimation(elem.string, elem.indicator))
-  }, 50)
+    strings2.forEach(elem => getAnimation2(elem))
+  }, 110)
 
 }, deley)
 
@@ -108,6 +108,7 @@ function createStrings(params) {
 
     string.prepend(indicator)
     fallingCode.append(string)
+    strings2.push(string)
   }
 }
 function createSpan(stringName, indicateName, timeDistense) {
@@ -117,20 +118,16 @@ function createSpan(stringName, indicateName, timeDistense) {
   const indicator = document.querySelector(indicateName)
   clenList(letters)
 
-  let bottomViewPort
-  let bottomString1
-  do {
-    bottomViewPort = viewPort.getBoundingClientRect().bottom // it is bottom of viewport
+  const bottomViewPort = viewPort.getBoundingClientRect().bottom // it is bottom of viewport
+  let bottomString1 = string.getBoundingClientRect().bottom
+  while (bottomViewPort > bottomString1) {
     bottomString1 = string.getBoundingClientRect().bottom
-    string.children
     const span = document.createElement('span')
     span.classList.add('letter')
     span.textContent = `${randomInteger(0, 1)}`
     string.append(span)
   }
-  while (  
-    bottomViewPort > bottomString1
-  )
+
   const time = Math.round(bottomString1 / timeDistense * 10) / 10
   try {
     indicator.style.animationDuration = `${time}s`
@@ -158,6 +155,7 @@ function getAnimation(stringName, indicateName) {
     const height = i.offsetHeight
     const top = i.offsetTop
     const bottom = top + height
+    // console.log(height)
     if (indicator > top && indicator < bottom) {
       indicator1.textContent = i.textContent
       i.classList.add('active')
@@ -167,7 +165,63 @@ function getAnimation(stringName, indicateName) {
     }
   }
 }
+function getAnimation2(nodeElem) {
+  // it assigns 'active' class to eaxh elements that indicator touched
+  const indicator = nodeElem.querySelector('.indicator-style')
+  const letters = nodeElem.querySelectorAll(`.letter`)
+  const heightStr = indicator.offsetTop
 
+  for (let i of letters) {
+    const height = i.offsetHeight
+    // console.log(height)
+    const top = i.offsetTop
+    const bottom = top + height
+    if (heightStr > top && heightStr < bottom) {
+      indicator.textContent = i.textContent
+      i.classList.add('active')
+      setTimeout(() => {
+        i.classList.remove('active')
+      }, )
+    }
+  }
+}
+function createSpan2(nodeElem) {
+  const viewPort = document.getElementById("home")
+  const string = nodeElem
+  const letters = nodeElem.querySelectorAll(`.letter`)
+  const indicator = nodeElem.querySelector(`.indicator-style`)
+  const timeDistense = indicator.dataset.time
+  clenList(letters)
+
+  const bottomViewPort = viewPort.getBoundingClientRect().bottom // it is bottom of viewport
+  let bottomString1 = string.getBoundingClientRect().bottom
+  while (bottomViewPort > bottomString1) {
+    //it calculates distence and then add span elements into string, count of span's elements depends on calculated distanse 
+    bottomString1 = string.getBoundingClientRect().bottom
+    const span = document.createElement('span')
+    span.classList.add('letter')
+    span.textContent = `${randomInteger(0, 1)}`
+    string.append(span)
+  }
+
+  const time = Math.round(bottomString1 / timeDistense * 10) / 10
+  try {
+    indicator.style.animationDuration = `${time}s`
+  } catch {
+    return
+  }
+
+  function clenList(list) {
+    const length = list.length
+    for (let i = 0; i < length; i++){
+      list[i].remove()
+    }
+  }
+  function randomInteger(min, max) {
+  const rand = min - 0.5 + Math.random() * (max - min + 1);
+  return Math.round(rand);
+}
+} 
 
 
 
