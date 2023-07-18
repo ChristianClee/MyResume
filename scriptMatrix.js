@@ -217,7 +217,7 @@ function getAnimation(nodeElem) {
       letters[i].classList.add('active')
       setTimeout(() => {
         letters[i].classList.remove('active')
-      },20)
+      },40)
       break
     }
   }
