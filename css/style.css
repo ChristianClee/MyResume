@@ -306,11 +306,9 @@ section{
   font-size: 2.6rem;
   position: relative;
 }
-.about-content p,
-.about-content ul{
-  font-size: 1.9rem;
-  margin: 2rem 0 3rem;
-  position: relative;
+.about-content .subTitle {
+  font-size: 2.4rem;
+  padding: 2.5rem 0;
 }
 .btn-box.btns {
   position: relative;
@@ -358,9 +356,10 @@ section{
 }
 .details .text .text-about{
   flex: 1 1 45rem;
-  /* text-align: center; */
-  /* background-color: white; */
   text-align: center;
+}
+.text-about{
+  font-size: 1.6rem;
 }
 
 .details .text .text-about span{
