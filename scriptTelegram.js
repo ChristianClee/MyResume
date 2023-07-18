@@ -17,8 +17,7 @@ document.getElementById('tg').addEventListener('submit', function (e) {
   e.preventDefault()
   let message = `<b>new message!</b>\n`;
   message += `<b>name: </b> ${this.name.value}\n`
-  message += `<b>mail: </b> ${this.email.value}\n`
-  message += `<b>phone: </b> ${this.phone.value}\n`
+  message += `<b>contact: </b> ${this.email.value}\n`
   message += `<b>text: </b> ${this.textAria.value}\n`
   axios.post(URL, {
     chat_id: CHAT_ID,
@@ -28,7 +27,6 @@ document.getElementById('tg').addEventListener('submit', function (e) {
   .then((res) => {
     this.name.value = ''
     this.email.value = ''
-    this.phone.value = ''
     this.textAria.value = ''
     showPopUp()
   })

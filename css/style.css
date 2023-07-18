@@ -351,17 +351,21 @@ section{
 .details .text{
   display: flex;
   flex-wrap:wrap ;
+  gap: 3rem;
   justify-content: space-between;
+  align-items: center;
+  
 }
 .details .text .text-about{
-  flex: 0 0 45%;
-  text-align: start;
+  flex: 1 1 45rem;
+  /* text-align: center; */
+  /* background-color: white; */
+  text-align: center;
 }
-.details .text .text-about li{
-  font-size: inherit;
-}
+
 .details .text .text-about span{
-  color: red;
+  color: rgb(254, 173, 173);
+  font-size: 2.3rem;
 
 }
 .details .hobby .ibg{
@@ -688,17 +692,24 @@ section{
   border: 2px solid var(--main-color);
   padding: 1rem;
   border-radius: .5rem;
-  
+  background-color: var(--bg-color);
+  font-weight: 600;
+  letter-spacing: .3rem;
 }
 .pop-up.active{
- 
-  animation-name: showPopUp;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
+  animation-name: blinking,changeColer;
+  animation-duration: 3s, 1s;
+  animation-delay: 0s, 2s;
+  animation-fill-mode: forwards, forwards;
+  
   
 }
 .pop-up p{
-  font-size: 1.6rem;
+  padding: 1.5rem;
+  font-size: 2.0rem;
+  text-align: center;
+  /* padding: 10rem; */
+
 }
 
 /* animation reload and scroll */
@@ -822,14 +833,6 @@ section{
   .falling-code{
     right: 1rem;
   }
-  /* .falling-code .string13{
-    right: 38rem;
-  }
-  .falling-code .string12{
-    right: 35rem;
-  } */
-
-
 
   footer{
     padding: 2rem 4%;
@@ -841,6 +844,7 @@ section{
   }
   #menu-icon{
     display: block;
+    font-size: 6rem;
   }
   .navbar{
     position: absolute;
@@ -886,18 +890,6 @@ section{
     transform: translateX(0);
     transition-delay: .45s;
   }
-  /* .falling-code .letter{
-    font-size: 1.5rem;
-  }
-  .indicator-style{
-    font-size: 1.5rem;
-  }
-  .falling-code .string13{
-    right: 32rem;
-  }
-  .falling-code .string12{
-    right: 28rem;
-  } */
 
 }
 @media (max-width: 520px){
@@ -942,12 +934,12 @@ section{
   .home{
     justify-content: center;
   }
-  .home-content {
+  /* .home-content {
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
-  }
+  } */
   .home-content h1 {
     font-size: 5rem;
   }
@@ -995,12 +987,19 @@ section{
     width: 0;
   }
 }
-@keyframes showPopUp{
+@keyframes blinking{
   0%, 10%,20%,26%,30%,32%,35%, 100%{
     opacity: 1;
   }
   5%,15%,23%,28%,31%,33%,34%,85%{
     opacity: 0;
+  }
+}
+@keyframes changeColer{
+  0%{background-color: var(--bg-color);}
+  100%{
+    background-color: var(--main-color);
+    color: var(--bg-color)
   }
 }
 @keyframes fallingLetter{
