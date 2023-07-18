@@ -71,54 +71,49 @@ setTimeout(() => {
   strings = createStrings(params)
   strings2 = [...strings]
   strings = filterElements(strings2)
+  
 
-  forEachCycle()
+  forEachCycle(strings)
   checkResize()
 
 
   setInterval(() => {
     strings.forEach(elem => getAnimation(elem))
-  }, 100)
+  }, 90)
 
-}, 0)
+  // strings.forEach(elem => {
+  //   setInterval(() => {
+  //     getAnimation(elem)
+  //   },100)
+  // })
+
+}, 500)
 
 
-
-let count = 0
+//this part of code for testing
+// let count = 0
 
 // setTimeout(() => {
 //   console.log(count)
 // },2000)
 
-setInterval(() => {
-  const difference = Math.round((2808 / count) * 10)/ 10
-  console.log(`difference ${difference}`)
-  count = 0
-}, 2000)
+// setInterval(() => {
+//   const difference = Math.round((2808 / count) * 10)/ 10
+//   console.log(`difference ${difference}`)
+//   console.log(`count ${count}`)
+//   count = 0
+// }, 2000)
 
-function checkResult() {
-  let flag = true
-  let count = 0
-  return (indicator) => {
-    count ++
-    if (flag && count === 800) {
-      console.log(indicator)
-      flag = false
-    }
-    else return
-  }
-}
-const check = checkResult()
+
 //====================================================== functions
 function checkResize() {
   window.addEventListener('resize', () => {
     // it triggers when viewPort changes the size
     strings = filterElements(strings2)
-    forEachCycle()
+    forEachCycle(strings)
   })
 }
-function forEachCycle() {
-  console.log()
+function forEachCycle(strings) {
   strings.forEach((elem) => {
     // it triggers when app is opened a first time
     createSpan(elem)
@@ -142,6 +137,7 @@ function createStrings(params) {
     string.prepend(indicator)
     strings.push(string)
   }
+
   return strings
 }
 function createSpan(nodeElem) {
@@ -150,6 +146,7 @@ function createSpan(nodeElem) {
   // it assign animationDuration param to indicator-style element
   // console.log(nodeElem)
   // it assign speed 
+
   fallingCode.append(nodeElem)
   const viewPort = document.getElementById("home")
   const string = nodeElem
@@ -158,17 +155,24 @@ function createSpan(nodeElem) {
   const timeDistense = indicator.dataset.time
   cleanList(letters)
 
-  const bottomViewPort = viewPort.getBoundingClientRect().bottom // it is bottom of viewport
-  let bottomString = string.getBoundingClientRect().bottom
+  const bottomViewPort = viewPort.clientHeight // it is bottom of viewport
+  let bottomString = string.clientHeight
+  // console.log(string.className === 'string1')
+
+  
+
+
   while (bottomViewPort > bottomString) {
+
     //it calculates distence and then add span elements into string, count of span's elements depends on calculated distanse 
-    bottomString = string.getBoundingClientRect().bottom
+    bottomString = string.clientHeight
     const span = document.createElement('span')
     span.classList.add('letter')
     span.textContent = `${randomInteger(0, 1)}`
     string.append(span)
   }
   assignSpeed(timeDistense)
+
 
   function cleanList(list) {
     const length = list.length
@@ -192,34 +196,33 @@ function getAnimation(nodeElem) {
   const indicator = nodeElem.querySelector('.indicator-style')
   const letters = nodeElem.querySelectorAll(`.letter`)
   const heightStr = indicator.offsetTop
+  // check2(nodeElem)
+
+  
   
   for (let i = 0; i < letters.length; i++) {
-    count ++
+    // count ++
     const height = letters[i].offsetHeight
     const top = letters[i].offsetTop
     const bottom = top + height
     
-    // check({
-    //   heightStr,
-    //   top,
-    //   difference:
-    //     Math.floor((heightStr - top) / height)
-    // })
     const difference = Math.floor((heightStr - top) / height)
     if (difference > 1) {
-      i += difference - 1
+      i += difference -1
       continue
     }
 
-    if (heightStr > top && heightStr < bottom) {
+    if (heightStr >= top && heightStr <= bottom) {
       indicator.textContent = letters[i].textContent
       letters[i].classList.add('active')
       setTimeout(() => {
         letters[i].classList.remove('active')
-      },)
+      },500)
       break
     }
   }
+
+
 }
 function filterElements(strings) {
 
@@ -227,13 +230,13 @@ function filterElements(strings) {
 
   switch (true) {
     case (viewPort <= 375):
-      return getResult(7)
+      return getResult(9)
 
     case (viewPort <= 462):
-      return getResult(7)
+      return getResult(9)
 
     case (viewPort <= 520):
-      return getResult(7)
+      return getResult(9)
 
     case (viewPort <= 768):
       return getResult(2)
