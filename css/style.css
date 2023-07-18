@@ -765,7 +765,7 @@ section{
   opacity: 0;
   transition-property: opacity, color ; 
   transition-timing-function: linear;
-  transition-duration: 2s; /* !!!  it controls animation's time */
+  transition-duration: 1.5s; /* !!!  it controls animation's time */
 }
 .falling-code .letter.active{
   opacity: 1;
@@ -792,7 +792,7 @@ section{
   position: absolute;
   top: 80%;
   left: 30%;
-  box-shadow: 0px 0px 35px 6px rgb(255, 255, 255);
+  box-shadow: 0px 0px 35px 9px rgb(255, 255, 255);
 }
 .indicator-style::after{
   content: '';

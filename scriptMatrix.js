@@ -3,26 +3,28 @@
 
 //================================================== creating fallingCode in HTML
 const fallingCode = document.querySelector('.falling-code')
-
+document.body.addEventListener('touchend', (e) => {
+  e.preventDefault()
+})
 
 
 const deley = fallingCode.dataset.settimeoutdeley
 const params = [
   {
   rightShift: 0,
-  speed: 180,
+  speed: 160,
   },
   {
   rightShift: 4,
-  speed: 200,
+  speed: 180,
   },
   {
   rightShift: 8,
-  speed: 130,
+  speed: 100,
   },
   {
   rightShift: 10,
-  speed: 100,
+  speed: 130,
   },
   {
   rightShift: 12,
@@ -87,7 +89,7 @@ setTimeout(() => {
   //   },100)
   // })
 
-}, 500)
+}, deley)
 
 
 //this part of code for testing
@@ -217,7 +219,7 @@ function getAnimation(nodeElem) {
       letters[i].classList.add('active')
       setTimeout(() => {
         letters[i].classList.remove('active')
-      },500)
+      },0)
       break
     }
   }
