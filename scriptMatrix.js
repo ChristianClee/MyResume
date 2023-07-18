@@ -70,33 +70,51 @@ let strings2
 setTimeout(() => {
   strings = createStrings(params)
   strings2 = [...strings]
-  // strings2 = _.cloneDeep(strings)
-  
-  
-  
-  
   strings = filterElements(strings2)
 
-
   forEachCycle()
-  window.addEventListener('resize', () => {
-    // it triggers when viewPort changes the size
-    strings = filterElements(strings2)
-    forEachCycle()
-    
-  })
+  checkResize()
 
 
   setInterval(() => {
     strings.forEach(elem => getAnimation(elem))
   }, 110)
 
-}, deley)
+}, 0)
 
 
 
+let count = 0
 
+// setTimeout(() => {
+//   console.log(count)
+// },2000)
+
+setInterval(() => {
+  const difference = Math.round((2700 / count) * 10)/ 10
+  console.log(`difference ${difference}`)
+  count = 0
+}, 2000)
+
+function checkResult() {
+  let flag = true
+  return () => {
+    if (flag) {
+      console.log("yes")
+      flag = false
+    }
+    else return
+  }
+}
+const check = checkResult()
 //====================================================== functions
+function checkResize() {
+  window.addEventListener('resize', () => {
+    // it triggers when viewPort changes the size
+    strings = filterElements(strings2)
+    forEachCycle()
+  })
+}
 function forEachCycle() {
   console.log()
   strings.forEach((elem) => {
@@ -172,8 +190,9 @@ function getAnimation(nodeElem) {
   const indicator = nodeElem.querySelector('.indicator-style')
   const letters = nodeElem.querySelectorAll(`.letter`)
   const heightStr = indicator.offsetTop
-
+  // check()
   for (let i of letters) {
+    count ++
     const height = i.offsetHeight
     const top = i.offsetTop
     const bottom = top + height
@@ -182,7 +201,8 @@ function getAnimation(nodeElem) {
       i.classList.add('active')
       setTimeout(() => {
         i.classList.remove('active')
-      }, )
+      },)
+      break
     }
   }
 }
@@ -192,23 +212,18 @@ function filterElements(strings) {
 
   switch (true) {
     case (viewPort <= 375):
-      console.log('375')
-      return getResult(8)
+      return getResult(7)
 
     case (viewPort <= 462):
-      console.log('462')
-      return getResult(8)
+      return getResult(7)
 
     case (viewPort <= 520):
-      console.log('520')
       return getResult(7)
 
     case (viewPort <= 768):
-      console.log('768')
       return getResult(2)
 
     case (viewPort <= 992): 
-      console.log("992")
       return getResult(1)
 
     default:
