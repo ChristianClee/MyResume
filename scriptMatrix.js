@@ -78,7 +78,7 @@ setTimeout(() => {
 
   setInterval(() => {
     strings.forEach(elem => getAnimation(elem))
-  }, 110)
+  }, 100)
 
 }, 0)
 
@@ -91,16 +91,18 @@ let count = 0
 // },2000)
 
 setInterval(() => {
-  const difference = Math.round((2700 / count) * 10)/ 10
+  const difference = Math.round((2808 / count) * 10)/ 10
   console.log(`difference ${difference}`)
   count = 0
 }, 2000)
 
 function checkResult() {
   let flag = true
-  return () => {
-    if (flag) {
-      console.log("yes")
+  let count = 0
+  return (indicator) => {
+    count ++
+    if (flag && count === 800) {
+      console.log(indicator)
       flag = false
     }
     else return
@@ -190,17 +192,30 @@ function getAnimation(nodeElem) {
   const indicator = nodeElem.querySelector('.indicator-style')
   const letters = nodeElem.querySelectorAll(`.letter`)
   const heightStr = indicator.offsetTop
-  // check()
-  for (let i of letters) {
+  
+  for (let i = 0; i < letters.length; i++) {
     count ++
-    const height = i.offsetHeight
-    const top = i.offsetTop
+    const height = letters[i].offsetHeight
+    const top = letters[i].offsetTop
     const bottom = top + height
+    
+    // check({
+    //   heightStr,
+    //   top,
+    //   difference:
+    //     Math.floor((heightStr - top) / height)
+    // })
+    const difference = Math.floor((heightStr - top) / height)
+    if (difference > 1) {
+      i += difference - 1
+      continue
+    }
+
     if (heightStr > top && heightStr < bottom) {
-      indicator.textContent = i.textContent
-      i.classList.add('active')
+      indicator.textContent = letters[i].textContent
+      letters[i].classList.add('active')
       setTimeout(() => {
-        i.classList.remove('active')
+        letters[i].classList.remove('active')
       },)
       break
     }
