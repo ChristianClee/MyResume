@@ -3,9 +3,7 @@
 
 //================================================== creating fallingCode in HTML
 const fallingCode = document.querySelector('.falling-code')
-document.body.addEventListener('touchend', (e) => {
-  e.preventDefault()
-})
+
 
 
 const deley = fallingCode.dataset.settimeoutdeley
@@ -76,7 +74,7 @@ setTimeout(() => {
   
 
   forEachCycle(strings)
-  checkResize()
+  // checkResize()
 
 
   setInterval(() => {
