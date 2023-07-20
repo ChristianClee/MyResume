@@ -79,14 +79,14 @@ body{
 
 section{
   min-height: 100vh;
-  padding: 10rem 7% 2rem;
+  padding: 10rem 3% 2rem;
 }
 .home {
   position: relative;
   display: flex;
   align-items: center;
   padding: 0 9%;
-  background: url('../assets/pictures/skull.jpg');
+  /* background: url('../assets/pictures/skull.jpg'); */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 80% ;
@@ -94,6 +94,46 @@ section{
 .home-content {
   max-width: 60rem;
   z-index: 99;
+}
+.go-resume-container{
+  display: flex;
+  justify-content: center;
+  /* background-color: red; */
+}
+.home-content .go-resume{
+  position: relative;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(255, 255, 255, 0.251); */
+  /* animation-name: goResume;
+  animation-duration: 1s;
+  animation-iteration-count: infinite; */
+}
+.home-content .go-resume:hover{
+  color: var(--second-bg-color);
+}
+.home-content .go-resume:hover i{
+  color: var(--text-color);
+  transform: translateY(1.5rem);
+}
+
+.home-content .go-resume p{
+  font-size: 2rem;
+  color: var(--main-color);
+}
+
+.home-content .go-resume i{
+  font-size: 7rem;
+  cursor: pointer;
+  color: var(--main-color);
+  animation-name: goResume;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  transition: transform 0.5s;
+  
 }
 
 .home-content h1{
@@ -109,6 +149,10 @@ section{
 .home-content .text-animate {
   position: relative;
   width: 32.8rem;
+}
+.home-content .subtitle{
+  font-size: 2.5rem;
+  position: relative;
 }
 .home-content .text-animate h3{ 
   /* ?  "-webkit-text-stroke" is a new property for me */
@@ -270,6 +314,29 @@ section{
   margin-bottom: 3rem;
   text-align: center;
 }
+.about .row{
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+.about .column{
+  /* background-color: #00abf0; */
+}
+.about .row .column h3{
+  font-size: 2rem;
+}
+.about .row .column .item{
+  display: flex;
+  gap: 2rem
+}
+.about .row .column .item li{
+  font-size: 2rem;
+}
+.about .row .column .item a{
+  color: rgb(226, 207, 37);
+  letter-spacing: .2rem;
+}
+
 .about-img {
   position: relative;
   width: 25rem;
@@ -300,15 +367,39 @@ section{
   border-right: .2rem solid var(--main-color); 
   animation: aboutSpinner 8s linear infinite;
 }
+.about .container{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 .about-content {
+ padding: 2rem 0 0 0;
   text-align: center;
+  flex: 1 1 60rem;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.about-content .title{
+  display: flex;
+  align-items: center;
+  gap: 1rem
+}
+.about-content .title img{
+  width: 40px;
+  height: 40px;
+}
+.about p{
+  font-size: 2rem;
+  line-height: 2.9rem;
 }
 .about-content h3 {
   font-size: 2.6rem;
   position: relative;
 }
 .about-content .subTitle {
-  font-size: 2.4rem;
+  font-size: 2rem;
   padding: 2.5rem 0;
 }
 .btn-box.btns {
@@ -322,23 +413,23 @@ section{
 .btn-box.btns div::before {
   background: var(--second-bg-color)
 }
-.about-content .details{
-  /* overflow: hidden; */
-  /* height: 0; */
+.about .details{
   display: none;
   position: relative;
   margin-top: 2rem;
 
 }
-.about-content .details.active{
+.about .details.active{
   display: block;
   transition: 1s ease;
   height: 100%;
 }
-.about-content .details h3{
+.about .details h3{
   text-align: center;
+  font-size: 2.5rem;
+  padding: 1rem 0;
 }
-.about-content .details-fon{
+.about .details-fon{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -350,23 +441,52 @@ section{
 .details .text{
   display: flex;
   flex-wrap:wrap ;
-  gap: 3rem;
+  gap: 2rem;
   justify-content: space-between;
-  align-items: center;
-  
+  /* align-items: center; */
+  height: auto;
 }
 .details .text .text-about{
+  position: relative;
   flex: 1 1 45rem;
-  text-align: center;
-}
-.text-about{
+  /* background-color: red; */
   font-size: 1.6rem;
+  border: .2rem solid var(--main-color);
+  border-radius: 0.6rem;
+  padding: 1.5rem;
 }
+.details .text .text-about::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--bg-color);
+  z-index: -1;
+  transition: .5s;
+}
+.details .text .text-about:hover::before{
+  width: 100%;
+}
+.details .text .text-about>*:not(:last-child){
+  margin-bottom: 2rem;
+}
+
 
 .details .text .text-about span{
   color: rgb(254, 173, 173);
   font-size: 2.3rem;
 
+}
+.text .text-about .item{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.text .text-about .item img{
+  width: 40px;
+  height: 40px;
 }
 .details .hobby .ibg{
   width: 15rem;
@@ -683,11 +803,11 @@ section{
 
 /* pop up messages */
 .pop-up{
-  opacity: 0;
+  opacity: .1;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateX(-50%) translateY(100vh);
   z-index: 100;
   border: 2px solid var(--main-color);
   padding: 1rem;
@@ -697,6 +817,7 @@ section{
   letter-spacing: .3rem;
 }
 .pop-up.active{
+  transform: translateX(-50%) translateY(0);
   animation-name: blinking,changeColer;
   animation-duration: 3s, 1s;
   animation-delay: 0s, 2s;
@@ -842,6 +963,10 @@ section{
   .header {
     background: var(--bg-color);
   }
+  .about-img{
+    width: 20rem;
+    height: 20rem;
+  }
   #menu-icon{
     display: block;
     font-size: 6rem;
@@ -907,6 +1032,10 @@ section{
     width: 38px;
     height: 38px;
   }
+  .about-img{
+    width: 15rem;
+    height: 15rem;
+  }
 
 .indicator-style::after{
   box-shadow: 0 0 100px 20px var(--main-color);
@@ -915,6 +1044,14 @@ section{
 @media (max-width: 462px){
   .home-content h1{
     font-size: 5.2rem;
+  }
+  .about p{
+  font-size: 1.6rem;
+  line-height: 2.9rem;
+}
+  .about-img{
+    width: 12rem;
+    height: 12rem;
   }
   .education{
     padding: 10rem 4% 5rem 5%;
@@ -929,20 +1066,22 @@ section{
     margin-top: 2rem;
     text-align: center;
   }
+.about .row .column .item li{
+  font-size: 1.6rem;
 }
-@media (max-width: 375px){
+}
+@media (max-width: 380px){
   .home{
     justify-content: center;
   }
-  /* .home-content {
-    display: flex;
-    align-items: center;
+  .about .row .column .item li{
+  font-size: 2rem;
+}
+  .about-content .row {
     flex-direction: column;
-    text-align: center;
-  } */
-  .home-content h1 {
-    font-size: 5rem;
+    align-items: center;
   }
+
 }
 
 /* keyframes animation */
@@ -953,12 +1092,7 @@ section{
   65%,85%{
     background-position: 0 0;
   }
-  /* 0%{
-    background-position: -33rem 0;
-  }
-  100%{
-    background-position: 0 0;
-  } */
+
 }
 @keyframes homeCursorText{
   0%,10%,100%{
@@ -1008,5 +1142,25 @@ section{
   }
   100%{
     top: 100%;
+  }
+}
+@keyframes goResume{
+  0%{
+    opacity: .3;
+  }
+  10%{
+    opacity: 1;
+  }
+  20%{
+    opacity: .3;
+  }
+  30%{
+    opacity: 1;
+  }
+  40%{
+    opacity: .3;
+  }
+  100%{
+    opacity: 1;
   }
 }

@@ -62,15 +62,15 @@ elemsSpan.forEach(elem => observerTest.observe(elem))
 
 // =============================== my buttons
 
-const details = document.querySelector('.about-content .details')
-const buttonDetails = document.querySelector('.about-content .btn')
+const details = document.querySelector('.about .details')
+const buttonDetails = document.querySelector('.about .btn')
 buttonDetails.onclick = () => {
   details.classList.toggle('active')
   const condition = details.classList.value.split(' ').includes('active')
   if (condition) {
-    buttonDetails.textContent = "Hide"
+    buttonDetails.textContent = "Убрать"
   } else {
-    buttonDetails.textContent = 'Read more'
+    buttonDetails.textContent = 'Подробнее'
   }
 }
 

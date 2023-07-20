@@ -198,7 +198,7 @@ function getAnimation(nodeElem) {
   const heightStr = indicator.offsetTop
   // check2(nodeElem)
 
-  
+
   
   for (let i = 0; i < letters.length; i++) {
     // count ++
@@ -239,7 +239,7 @@ function filterElements(strings) {
       return getResult(9)
 
     case (viewPort <= 768):
-      return getResult(2)
+      return getResult(4)
 
     case (viewPort <= 992): 
       return getResult(1)
