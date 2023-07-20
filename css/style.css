@@ -384,6 +384,8 @@ section{
 .about-content .title{
   display: flex;
   align-items: center;
+  /* justify-content: start; */
+  /* background-color: red; */
   gap: 1rem
 }
 .about-content .title img{
@@ -1028,6 +1030,11 @@ section{
   .home-sci {
     width: 160px;
   }
+  .go-resume-container{
+  display: flex;
+  justify-content: start;
+  /* background-color: red; */
+}
   .home-sci a {
     width: 38px;
     height: 38px;
