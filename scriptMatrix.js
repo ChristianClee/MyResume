@@ -74,7 +74,7 @@ setTimeout(() => {
   
 
   forEachCycle(strings)
-  checkResize()
+  // checkResize()
 
 
   setInterval(() => {
