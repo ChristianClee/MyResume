@@ -119,12 +119,10 @@ section{
   color: var(--text-color);
   transform: translateY(1.5rem);
 }
-
 .home-content .go-resume p{
   font-size: 2rem;
   color: var(--main-color);
 }
-
 .home-content .go-resume i{
   font-size: 7rem;
   cursor: pointer;
